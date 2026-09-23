@@ -4,7 +4,7 @@ Local research agent. It retrieves from a private organizational corpus, cites t
 
 The corpus stays on the machine that runs Casca. This page is the public view: architecture, three screens, and the eval card.
 
-Day model: `heretic-ara-v3:q4km` through local Ollama (about 20B, Q4). API: FastAPI. UI: React.
+Day model: `heretic-ara-v3:q4km` through local Ollama (about 20B, Q4). Retrieval is hybrid: keyword overlap plus local embeddings from `nomic-embed-text`. API: FastAPI. UI: React.
 
 ## Architecture
 
@@ -74,7 +74,7 @@ Live score on `heretic-ara-v3:q4km`, same 15 cases, 2026-09-23:
 | Citation rate | 9/9 cases that require a named file |
 | Desk-hours ask | 18.1 seconds |
 
-Halo, Familiar Defense, and the defense-use question were answered with citations. The recipe, payroll, and malware cases refused with no citations. The two pack misses came back with no citations. The desk-hours latency is the model call only, measured in the live harness.
+Halo, Familiar Defense, and the defense-use question were answered with citations. The recipe, payroll, and malware cases refused with no citations. The two pack misses came back with no citations. The desk-hours latency is the model call only, measured in the live harness before the embedding index was added. After that change, the same 15-case mock harness still passed 15/0. A desk-hours hit now carries both scores: keyword 0.56 and embedding 0.80 on `aff_public_faq_hours.md`. The nonsense pack miss still returns no citations.
 
 ## What this is not
 
