@@ -19,7 +19,6 @@ flowchart LR
   D --> E[Export packet for a person to review]
 ```
 
-Halo, Familiar Defense, and general defense questions are allowed through. They are retrieved or answered. They are not refused for the topic name.
 
 ## Screens
 
