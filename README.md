@@ -4,7 +4,7 @@ Local research agent for engineering and science. It retrieves from a private pa
 
 The corpus stays on the machine that runs Casca. This page is the public view: architecture, two screens, the eval card, and a note on the chapter view.
 
-Day model: `heretic-ara-v3:q4km` through local Ollama (about 20B, Q4), on a machine with a 12 GB GPU. Retrieval is hybrid: keyword overlap plus local embeddings from `nomic-embed-text`. API: Python and FastAPI. UI: React.
+Day model: a local Ollama model (about 20B, Q4), on a machine with a 12 GB GPU. Retrieval is hybrid: keyword overlap plus local embeddings from `nomic-embed-text`. API: Python and FastAPI. UI: React.
 
 ## Architecture
 
@@ -67,7 +67,7 @@ Cases that expect a citation must name a preferred file from the pack. `grounded
 
 The live card below is the 2026-09-23 run, before the organizational files were removed. It is history. On that run the woods-water question was a pack miss. The pack now is 50 engineering and science chapters, and that question expects the water chapter. A live re-score of this pack is not on this page.
 
-Live score on `heretic-ara-v3:q4km`, same routing shape, 2026-09-23, prior corpus:
+Live score on that local model, same routing shape, 2026-09-23, prior corpus:
 
 | | |
 |---|---|
