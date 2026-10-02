@@ -27,9 +27,7 @@ Cited answer. An engineering question returns the matching chapter and a chunk i
 
 The earlier screenshot showed a desk-hours answer from an organizational file. That file is no longer in the pack, and the screenshot has been removed.
 
-Refuse. A weapons-recipe question stops at the policy gate. The model is not called. Sources stay empty.
-
-![Recipe question refused with no sources](images/02-refuse.png)
+Refuse. A weapons-recipe question stops at the policy gate. The model is not called, and the sources stay empty. That turn is recorded in the eval table.
 
 Pack miss. A question the corpus does not cover is answered from the local model. The sources panel says there are no sources for the turn.
 
