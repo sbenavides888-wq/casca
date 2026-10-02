@@ -2,7 +2,7 @@
 
 Local research agent for engineering and science. It retrieves from a private pack of 50 chapters, cites the file and section, and will not invent a citation when the pack misses. A person exports a packet. Nothing is sent on its own. Business overlap in the pack is general: writing, research methods, and intellectual property. It does not hold organizational files.
 
-The corpus stays on the machine that runs Casca. This page is the public view: architecture, two screens, the eval card, and a note on the chapter view.
+The corpus stays on the machine that runs Casca. This page is the public view: architecture, three cited answers, the eval card, and a note on the chapter view.
 
 Day model: a local Ollama model (about 20B, Q4), on a machine with a 12 GB GPU. Retrieval is hybrid: keyword overlap plus local embeddings from `nomic-embed-text`. API: Python and FastAPI. UI: React.
 
@@ -23,15 +23,31 @@ A question is refused for a recipe, a payroll or identity dump, or covert malwar
 
 ## Screens
 
-Cited answer. An engineering question returns the matching chapter and a chunk id. The sources panel lists those passages.
+Three questions to the 50-chapter pack. Each answer cites a file and a section. A recipe, a payroll dump, or malware is refused with no citations. Those turns are in the eval table.
 
-The earlier screenshot showed a desk-hours answer from an organizational file. That file is no longer in the pack, and the screenshot has been removed.
+### Kirchhoff's voltage law
 
-Refuse. A weapons-recipe question stops at the policy gate. The model is not called, and the sources stay empty. That turn is recorded in the eval table.
+When electrostatic potential is single valued, the algebraic sum of voltages around a loop is zero. When is Kirchhoff's voltage law in its lumped form the wrong model?
 
-Pack miss. A question the corpus does not cover is answered from the local model. The sources panel says there are no sources for the turn.
+![Lumped Kirchhoff voltage law fails when the loop is large compared with a wavelength](images/01-kvl.png)
 
-![Pack miss answered with no citations](images/03-pack-miss.png)
+The answer cites `ee_phd_primer.md`. The lumped sum holds while magnetic induction through the loop is negligible. When the loop is large compared with a wavelength, it is an antenna.
+
+### Sketch constraints
+
+An under-constrained sketch will solve differently next time. What constraint is missing if dragging a point moves something that should stay fixed?
+
+![An under-constrained CAD sketch moves when a point is dragged](images/02-cad-sketch.png)
+
+The answer cites `cad_3d_howto.md`. A sketch is fully constrained when each degree of freedom is fixed by a dimension or a geometric constraint.
+
+### Nyquist sampling
+
+Why does a filter after the alias has folded in fail to undo sampling slower than the Nyquist rule, fs > 2 f_max?
+
+![A filter after the sampler cannot undo aliasing](images/03-nyquist.png)
+
+The answer cites `ee_phd_primer.md` and `digital_signal_processing_primer.md`. A frequency above fs/2 folds into the baseband. The anti-alias filter has to run before the sampler.
 
 ## Eval
 
